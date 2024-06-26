@@ -10,9 +10,10 @@ import {
   extendTheme,
   VStack,
   Box,
+  Button,
 } from "native-base";
 import NativeBaseIcon from "./components/NativeBaseIcon";
-import { StyleSheet,TextInput,Platform } from "react-native";
+import { StyleSheet, TextInput } from "react-native";
 
 // Define the config
 const config = {
@@ -25,9 +26,10 @@ export const theme = extendTheme({ config });
 
 const TextInputLogin = () => {
   const [text, setText] = useState('');
+  const { colorMode } = useColorMode();
 
   return (
-    <NativeBaseProvider>
+    <NativeBaseProvider theme={theme}>
       <Center
         _dark={{ bg: "blueGray.900" }}
         _light={{ bg: "blueGray.50" }}
@@ -41,8 +43,12 @@ const TextInputLogin = () => {
           <Box>
             <Text>Nome:</Text>
             <TextInput
-              style={styles.input}
+              style={[
+                styles.input,
+                { color: colorMode === "dark" ? "white" : "black" },
+              ]}
               placeholder="Digite seu nome"
+              placeholderTextColor={colorMode === "dark" ? "gray" : "darkgray"}
               value={text}
               onChangeText={setText}
             />
@@ -50,13 +56,20 @@ const TextInputLogin = () => {
           <Box>
             <Text>Senha:</Text>
             <TextInput
-              style={styles.input}
+              style={[
+                styles.input,
+                { color: colorMode === "dark" ? "white" : "black" },
+              ]}
               placeholder="Digite sua senha"
+              placeholderTextColor={colorMode === "dark" ? "gray" : "darkgray"}
               secureTextEntry={true}
             />
           </Box>
+          <Box>
+            <button type={"submit"} style={styles.button}>Login</button>
+          </Box>
 
-          <ToggleDarkMode />
+          <ToggleDarkMode/>
         </VStack>
       </Center>
     </NativeBaseProvider>
@@ -81,7 +94,8 @@ function ToggleDarkMode() {
   );
 }
 
-const styles = StyleSheet.create({
+let styles;
+styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -90,13 +104,23 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     borderColor: 'gray',
-    borderWidth: 1,
+    borderWidth: 2,
     marginBottom: 12,
     paddingHorizontal: 8,
     width: 200,
   },
   text: {
     fontSize: 16,
+  },
+  button: {
+    height: 40,
+    backgroundColor:'#ccc',
+    borderColor: 'gray',
+    borderWidth: 1,
+    marginBottom: 12,
+    paddingHorizontal: 8,
+    borderRadius:9,
+    width: 200,
   },
 });
 
