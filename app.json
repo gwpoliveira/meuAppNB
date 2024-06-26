@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "meuAppNB",
-    "slug": "meuAppNB",
+    "slug": "meuappnb",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -22,6 +22,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "c81e64a8-4636-44ac-8c87-63100fa160aa"
+      }
+    },
+    "owner": "gleiserwesley"
   }
 }
