@@ -56,8 +56,6 @@ const TextInputLogin = () => {
             />
           </Box>
 
-          <Text style={styles.text}>Você digitou: {text}</Text>
-
           <ToggleDarkMode />
         </VStack>
       </Center>
