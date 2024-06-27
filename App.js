@@ -23,7 +23,6 @@ const config = {
 
 // extend the theme
 export const theme = extendTheme({ config });
-
 const TextInputLogin = () => {
   const [text, setText] = useState('');
   const { colorMode } = useColorMode();
