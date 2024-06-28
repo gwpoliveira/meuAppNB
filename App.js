@@ -13,7 +13,10 @@ import {
   Button,
 } from "native-base";
 import NativeBaseIcon from "./components/NativeBaseIcon";
+import ToggleDarkMode from "./components/ToggleDarkMode";
 import { StyleSheet, TextInput } from "react-native";
+import {Entypo, FontAwesome5} from "@expo/vector-icons";
+import Camera from "./components/Camera";
 
 // Define the config
 const config = {
@@ -37,7 +40,7 @@ const TextInputLogin = () => {
       >
         <VStack space={5} alignItems="center">
           <NativeBaseIcon />
-          <Heading size="lg">Tela de Login</Heading>
+          <Heading size="lg">Tela de Login </Heading>
 
           <Box>
             <Text>Nome:</Text>
@@ -66,30 +69,22 @@ const TextInputLogin = () => {
           </Box>
           <Box>
             <button type={"submit"} style={styles.button}>Login</button>
+
+          </Box>
+          <Box className='redeSociais'>
+            <FontAwesome5 name="facebook" size={55} color="white" />
+            <Entypo name="instagram-with-circle" size={55} color="white" />
+            <FontAwesome5 name="whatsapp" size={55} color="white" />
+          </Box>
+
+          <Box>
+            <Camera/>
           </Box>
 
           <ToggleDarkMode/>
         </VStack>
       </Center>
     </NativeBaseProvider>
-  );
-}
-
-// Color Switch Component
-function ToggleDarkMode() {
-  const { colorMode, toggleColorMode } = useColorMode();
-  return (
-    <HStack space={3} alignItems="center">
-      <Text>Escuro</Text>
-      <Switch
-        isChecked={colorMode === "light"}
-        onToggle={toggleColorMode}
-        aria-label={
-          colorMode === "light" ? "switch to dark mode" : "switch to light mode"
-        }
-      />
-      <Text>Claro</Text>
-    </HStack>
   );
 }
 
@@ -121,6 +116,7 @@ styles = StyleSheet.create({
     borderRadius:9,
     width: 200,
   },
+
 });
 
 export default TextInputLogin;
