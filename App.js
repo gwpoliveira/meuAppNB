@@ -40,11 +40,11 @@ const TextInputLogin = () => {
         flex={1}
       >
         <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-          <VStack space={5} alignItems="center">
+          <VStack space={5} alignItems="center" style={styles.vstack}>
             <NativeBaseIcon />
-            <Heading size="lg">Tela de Login</Heading>
+            <Heading size="lg" style={styles.heading}>Tela de Login</Heading>
 
-            <Box>
+            <Box style={styles.box}>
               <Text>Nome:</Text>
               <TextInput
                 style={[
@@ -57,7 +57,7 @@ const TextInputLogin = () => {
                 onChangeText={setText}
               />
             </Box>
-            <Box>
+            <Box style={styles.box}>
               <Text>Senha:</Text>
               <TextInput
                 style={[
@@ -69,24 +69,24 @@ const TextInputLogin = () => {
                 secureTextEntry={true}
               />
             </Box>
-            <Box>
+            <Box style={styles.box}>
               <Button onPress={() => console.log("Login pressed")} style={styles.button}>Login</Button>
             </Box>
-            <HStack space={4}>
+            <HStack space={4} style={styles.hstack}>
               <FontAwesome5 name="facebook" size={55} color="white" />
               <Entypo name="instagram-with-circle" size={55} color="white" />
               <FontAwesome5 name="whatsapp" size={55} color="white" />
             </HStack>
 
-            <Box>
-              <Camera/>
+            <Box style={styles.box}>
+              <Camera />
             </Box>
 
-            <Box>
-              <ImagePickerExample/>
+            <Box style={styles.box}>
+              <ImagePickerExample />
             </Box>
 
-            <ToggleDarkMode/>
+            <ToggleDarkMode />
           </VStack>
         </ScrollView>
       </Center>
@@ -95,32 +95,40 @@ const TextInputLogin = () => {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 16,
+  vstack: {
+    paddingVertical: 40,
+    paddingHorizontal: 20,
+  },
+  heading: {
+    marginBottom: 30,
+  },
+  box: {
+    marginBottom: 30,
+    width: '80%',
   },
   input: {
     height: 40,
     borderColor: 'gray',
     borderWidth: 2,
-    marginBottom: 12,
     paddingHorizontal: 8,
-    width: 200,
+    width: '100%',
   },
   text: {
     fontSize: 16,
   },
   button: {
     height: 40,
-    backgroundColor:'#ccc',
+    backgroundColor: '#ccc',
     borderColor: 'gray',
     borderWidth: 1,
-    marginBottom: 12,
+    marginBottom: 20,
     paddingHorizontal: 8,
-    borderRadius:9,
-    width: 200,
+    borderRadius: 9,
+    width: '100%',
     justifyContent: 'center',
+  },
+  hstack: {
+    marginBottom: 30,
   },
 });
 

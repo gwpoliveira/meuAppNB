@@ -44,9 +44,11 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+
   },
   image: {
     width: 200,
     height: 200,
+    marginTop:20,
   },
 });
