@@ -4,7 +4,6 @@ import {
   HStack,
   Center,
   Heading,
-  Switch,
   useColorMode,
   NativeBaseProvider,
   extendTheme,
@@ -14,10 +13,10 @@ import {
 } from "native-base";
 import NativeBaseIcon from "./components/NativeBaseIcon";
 import ToggleDarkMode from "./components/ToggleDarkMode";
-import { StyleSheet, TextInput } from "react-native";
+import { StyleSheet, TextInput, ScrollView } from "react-native";
 import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 import Camera from "./components/Camera";
-import ImagePicker from "./components/ImagemPichker";
+import ImagePickerExample from "./components/ImagePickerExample";
 
 // Define the config
 const config = {
@@ -27,10 +26,6 @@ const config = {
 
 // extend the theme
 export const theme = extendTheme({ config });
-
-function ImagemPichker() {
-  return null;
-}
 
 const TextInputLogin = () => {
   const [text, setText] = useState('');
@@ -44,61 +39,62 @@ const TextInputLogin = () => {
         px={4}
         flex={1}
       >
-        <VStack space={5} alignItems="center">
-          <NativeBaseIcon />
-          <Heading size="lg">Tela de Login </Heading>
+        <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+          <VStack space={5} alignItems="center">
+            <NativeBaseIcon />
+            <Heading size="lg">Tela de Login</Heading>
 
-          <Box>
-            <Text>Nome:</Text>
-            <TextInput
-              style={[
-                styles.input,
-                { color: colorMode === "dark" ? "white" : "black" },
-              ]}
-              placeholder="Digite seu nome"
-              placeholderTextColor={colorMode === "dark" ? "gray" : "darkgray"}
-              value={text}
-              onChangeText={setText}
-            />
-          </Box>
-          <Box>
-            <Text>Senha:</Text>
-            <TextInput
-              style={[
-                styles.input,
-                { color: colorMode === "dark" ? "white" : "black" },
-              ]}
-              placeholder="Digite sua senha"
-              placeholderTextColor={colorMode === "dark" ? "gray" : "darkgray"}
-              secureTextEntry={true}
-            />
-          </Box>
-          <Box>
-            <button type={"submit"} style={styles.button}>Login</button>
-          </Box>
-          <HStack space={4}>
-            <FontAwesome5 name="facebook" size={55} color="white" />
-            <Entypo name="instagram-with-circle" size={55} color="white" />
-            <FontAwesome5 name="whatsapp" size={55} color="white" />
-          </HStack>
+            <Box>
+              <Text>Nome:</Text>
+              <TextInput
+                style={[
+                  styles.input,
+                  { color: colorMode === "dark" ? "white" : "black" },
+                ]}
+                placeholder="Digite seu nome"
+                placeholderTextColor={colorMode === "dark" ? "gray" : "darkgray"}
+                value={text}
+                onChangeText={setText}
+              />
+            </Box>
+            <Box>
+              <Text>Senha:</Text>
+              <TextInput
+                style={[
+                  styles.input,
+                  { color: colorMode === "dark" ? "white" : "black" },
+                ]}
+                placeholder="Digite sua senha"
+                placeholderTextColor={colorMode === "dark" ? "gray" : "darkgray"}
+                secureTextEntry={true}
+              />
+            </Box>
+            <Box>
+              <Button onPress={() => console.log("Login pressed")} style={styles.button}>Login</Button>
+            </Box>
+            <HStack space={4}>
+              <FontAwesome5 name="facebook" size={55} color="white" />
+              <Entypo name="instagram-with-circle" size={55} color="white" />
+              <FontAwesome5 name="whatsapp" size={55} color="white" />
+            </HStack>
 
-          <Box>
-            <Camera/>
-          </Box>
+            <Box>
+              <Camera/>
+            </Box>
 
-          <Box>
-            <ImagePicker/>
-          </Box>
+            <Box>
+              <ImagePickerExample/>
+            </Box>
 
-          <ToggleDarkMode/>
-        </VStack>
+            <ToggleDarkMode/>
+          </VStack>
+        </ScrollView>
       </Center>
     </NativeBaseProvider>
   );
 }
 
-let styles;
-styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -124,6 +120,7 @@ styles = StyleSheet.create({
     paddingHorizontal: 8,
     borderRadius:9,
     width: 200,
+    justifyContent: 'center',
   },
 });
 
