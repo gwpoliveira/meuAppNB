@@ -15,8 +15,9 @@ import {
 import NativeBaseIcon from "./components/NativeBaseIcon";
 import ToggleDarkMode from "./components/ToggleDarkMode";
 import { StyleSheet, TextInput } from "react-native";
-import {Entypo, FontAwesome5} from "@expo/vector-icons";
+import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 import Camera from "./components/Camera";
+import ImagePicker from "./components/ImagemPichker";
 
 // Define the config
 const config = {
@@ -26,6 +27,11 @@ const config = {
 
 // extend the theme
 export const theme = extendTheme({ config });
+
+function ImagemPichker() {
+  return null;
+}
+
 const TextInputLogin = () => {
   const [text, setText] = useState('');
   const { colorMode } = useColorMode();
@@ -69,16 +75,19 @@ const TextInputLogin = () => {
           </Box>
           <Box>
             <button type={"submit"} style={styles.button}>Login</button>
-
           </Box>
-          <Box className='redeSociais'>
+          <HStack space={4}>
             <FontAwesome5 name="facebook" size={55} color="white" />
             <Entypo name="instagram-with-circle" size={55} color="white" />
             <FontAwesome5 name="whatsapp" size={55} color="white" />
-          </Box>
+          </HStack>
 
           <Box>
             <Camera/>
+          </Box>
+
+          <Box>
+            <ImagePicker/>
           </Box>
 
           <ToggleDarkMode/>
@@ -116,7 +125,6 @@ styles = StyleSheet.create({
     borderRadius:9,
     width: 200,
   },
-
 });
 
 export default TextInputLogin;
