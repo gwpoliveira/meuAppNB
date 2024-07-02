@@ -17,6 +17,7 @@ import { StyleSheet, TextInput, ScrollView } from "react-native";
 import { Entypo, FontAwesome5 } from "@expo/vector-icons";
 import Camera from "./components/Camera";
 import ImagePickerExample from "./components/ImagePickerExample";
+import ExpoContacts from "./components/Contacts";
 
 // Define the config
 const config = {
@@ -84,6 +85,10 @@ const TextInputLogin = () => {
 
             <Box style={styles.box}>
               <ImagePickerExample />
+            </Box>
+
+            <Box>
+              <ExpoContacts/>
             </Box>
 
             <ToggleDarkMode />
